@@ -15,8 +15,14 @@ if(!defined('ABSPATH')){
     exit;
 }
 
-// Load scripts and styles
+// Load Scripts and Styles
 require_once(plugin_dir_path(__FILE__) . '/includes/social-links-cssjs.php');
 
-// Load class
+// Load Class
 require_once(plugin_dir_path(__FILE__) . '/includes/social-links-class.php');
+
+// Register widget
+function kmz_register_social_links_widget() {
+    register_widget( 'Social_Links_Widget' );
+}
+add_action('widgets_init', 'kmz_register_social_links_widget');
